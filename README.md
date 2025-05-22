@@ -1,70 +1,108 @@
-<h1 align="center">
-  <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcW0zZ3V5dWx1eXJqY2V6eWY4bWxqYzN6dGJ0Z2Z6eHh1dGZ0ZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/26tn33aiTi1jkl6H6/giphy.gif" width="120" alt="Cloud Coder Logo"><br>
-  <b>✨ Cloud Coder ✨</b><br>
-  <sub>The Serverless IDE Revolution</sub>
-</h1>
-
-<p align="center">
-  <a href="https://www.abhishekbishwas.com.np">
-    <img src="https://img.shields.io/badge/🚀_Live_Demo-FF6B6B?style=for-the-badge&logo=vercel&logoColor=white" alt="Live Demo">
-  </a>
-  <a href="#">
-    <img src="https://img.shields.io/badge/KIIT_University-8A2BE2?style=for-the-badge&logo=academia&logoColor=white" alt="KIIT">
-  </a>
-</p>
-
-<div align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=24&duration=2000&pause=500&color=58A6FF&center=true&vCenter=true&width=800&height=80&lines=Code+Collaborate+Create;Serverless+%E2%9A%A1%EF%B8%8F+Scalable+%F0%9F%9A%80+Secure+%F0%9F%94%92;Multi-language+IDE+with+Real-time+Collaboration" alt="Typing animation">
-</div>
+<h1 align="center">KIIT LAB</h1>
+<p align="center"><strong>The Serverless, Collaborative IDE</strong></p>
 
 ---
 
-## 🌟 Feature Highlights
+## 🚀 Overview
 
-<div align="center">
+**Cloud Coder** is a scalable, serverless Integrated Development Environment (IDE) that brings real-time collaboration to your browser. Built on modern cloud technologies, it lets you write, run, and share code with your team—no local setup required.
 
-| <img src="https://img.icons8.com/fluency/96/000000/visual-studio-code-2019.png" width="64" alt="VS Code Editor"> | <img src="https://img.icons8.com/color/96/000000/google-logo.png" width="64" alt="Google Auth"> | <img src="https://img.icons8.com/color/96/000000/mongodb.png" width="64" alt="MongoDB"> |
-|:--:|:--:|:--:|
-| **VS Code-like Editor** | **Google OAuth 2.0** | **MongoDB + GridFS** |
+- **Serverless**: Auto-scaling compute powered by AWS Lambda.
+- **Multi-language**: Supports JavaScript/TypeScript, Python, Go, and more.
+- **Secure**: End-to-end encrypted sessions with Google OAuth 2.0 and JWT.
 
-<br>
+---
 
-<img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcW0zZ3V5dWx1eXJqY2V6eWY4bWxqYzN6dGJ0Z2Z6eHh1dGZ0ZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o7qE1YN7aBOFPRw8E/giphy.gif" width="600" alt="Demo animation">
+## 🔍 Key Features
 
-</div>
+| Feature                            | Benefit                                       |
+|------------------------------------|-----------------------------------------------|
+| **VS Code–style Editor**           | Familiar Monaco interface; syntax highlighting, IntelliSense, extensions. |
+| **On-demand Code Execution**       | Isolated, serverless sandboxes via Judge0.    |
+| **Persistent Storage**             | MongoDB Atlas . |
+| **OAuth Authentication**           | Secure sign-in with Google; fine-grained access control. |
+| **Built-in DevOps**                | CI/CD templates for GitHub Actions & Vercel deployments. |
+
+---
+
+## 🏗 Architecture
+
+```
+┌──────────────┐       ┌──────────────┐       ┌──────────────┐
+│  Frontend    │──HTTP─▶ AWS API Gateway  ──▶│ AWS Lambda   │──▶ Judge0 (Docker)
+│  (Next.js)   │       │ (NestJS handlers)│   └──────────────┘
+└──────────────┘       └──────────────┘
+          │
+          └─────────────────▶ MongoDB Atlas (with GridFS)
+```
+
+1. **Next.js + Monaco Editor** serves the client.
+2. **AWS API Gateway → Lambda (NestJS)** handles authentication, collaboration events, and persistence.
+3. **Judge0 cluster** executes code in isolated containers.
+4. **MongoDB Atlas** stores user projects, files, and session histories.
 
 ---
 
 ## 🛠 Tech Stack
 
-<div align="center">
-  <img src="https://skillicons.dev/icons?i=nextjs,aws,nodejs,mongodb,git,vercel,digitalocean,figma&theme=dark&perline=4" alt="Tech stack">
-</div>
-
-| Layer        | Technologies Used                                                         |
-|--------------|----------------------------------------------------------------------------|
-| **Frontend** | Next.js, Monaco Editor (VS Code), Tailwind CSS                            |
-| **Backend**  | AWS Lambda, NestJS, Judge0 (self-hosted instance for code execution)      |
-| **Database** | MongoDB Atlas with GridFS for large file handling                         |
-| **DevOps**   | Vercel (CI/CD), GitHub Actions, DigitalOcean (build agents / container)   |
-| **Authentication** | Google OAuth 2.0, JWT for secure session management               |
+| Layer             | Technologies                                             |
+|-------------------|----------------------------------------------------------|
+| **Client**        | Next.js, React, Monaco Editor, Tailwind CSS              |
+| **Server**        | AWS Lambda, API Gateway, NestJS                          |
+| **Execution**     | Judge0 self-hosted (Docker)                              |
+| **Database**      | MongoDB Atlas + GridFS                                   |
+| **Authentication**| Google OAuth 2.0, JWT                                    |
+| **CI/CD & Hosting** | GitHub Actions, Vercel, DigitalOcean Droplets         |
 
 ---
 
-## 🚀 Getting Started
+## 📦 Installation & Local Development
 
-Follow the instructions below to set up the project locally.
+1. **Clone the repository**  
+   ```bash
+   git clone https://github.com/AnshuByte/Kiit_Lab.git
+   cd cloud-coder
+   ```
 
-```bash
-# Clone the repository
-git clone git@github.com:your-username/cloud-coder.git
-cd cloud-coder
+2. **Install dependencies**  
+   ```bash
+   pnpm install    # or npm install / yarn
+   ```
 
-# Install dependencies
-pnpm install  # or use npm / yarn
+3. **Configure environment**  
+   Copy `.env.example` to `.env.local` and fill in:
+   - `NEXT_PUBLIC_API_URL`
+   - `GOOGLE_OAUTH_CLIENT_ID` & `SECRET`
+   - `MONGODB_URI`
+   - AWS credentials (for local AWS Lambda invocation)
 
-# Set up environment variables
-cp .env.example .env.local
+4. **Start development server**  
+   ```bash
+   pnpm dev
+   ```
 
-# Run the development server
-pnpm dev
+5. **Run backend functions locally**  
+   ```bash
+   pnpm workspace @cloud-coder/api start
+   ```
+
+---
+
+## ⚙️ Usage
+
+- Open your browser at `http://localhost:3000`
+- Sign in with Google  
+- Create or join a workspace  
+- Invite collaborators via shareable link  
+- Write, run, and debug code together in real time  
+
+
+
+---
+
+## 🛡 License
+
+Distributed under the **MIT License**. See [LICENSE](./LICENSE) for details.
+
+---
+
